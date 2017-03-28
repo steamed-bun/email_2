@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ssh@localhost" uuid="fbf06f6f-5e80-4f3e-8e8a-a0bfb14c5844">
+    <database-info product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="ssh"/>
+      <table id="2" parent="1" name="departement"/>
+      <table id="3" parent="1" name="emailinforecord"/>
+      <table id="4" parent="1" name="employee"/>
+      <table id="5" parent="1" name="user"/>
+      <column id="6" parent="2" name="DEPT_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="7" parent="2" name="DEPT_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>DEPT_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="emailId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="10" parent="3" name="receiver">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="11" parent="3" name="activationCode">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="12" parent="3" name="status">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="13" parent="3" name="PRIMARY">
+        <columns>emailId</columns>
+        <primary>1</primary>
+      </key>
+      <column id="14" parent="4" name="E_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="4" name="E_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="16" parent="4" name="EMAIL">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="17" parent="4" name="BIRTH">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="18" parent="4" name="CREATE_TIME">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="19" parent="4" name="DEPT_ID">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="20" parent="4" name="FK_ciihnikv3kjuywon8syi1fu78">
+        <columns>DEPT_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="21" parent="4" name="PRIMARY">
+        <columns>E_ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="22" parent="4" name="FK_ciihnikv3kjuywon8syi1fu78">
+        <columns>DEPT_ID</columns>
+        <ref-key>~.departement.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="23" parent="5" name="user_Id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="24" parent="5" name="userName">
+        <data-type>varchar(20)</data-type>
+      </column>
+    </database-model>
+  </data-source>
+</component>

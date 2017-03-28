@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiyou.email.mapper.EmailMapper">
+    <!-- Base Result Map-->
+    <sql id="Base_Column_List">
+        a.emailId, a.receiver, a.activationCode, a.status
+    </sql>
+
+    <insert id="addInfoRecord" parameterType="com.xiyou.email.entities.InfoRecord" keyProperty="emailId">
+        insert into emailInfoRecord (emailId, receiver, activationCode, status)
+        values (#{emailId},#{receiver},#{activationCode},#{status})
+    </insert>
+
+    <!-- 根据id，修改记录-->
+    <update id="updateStatus" parameterType="java.lang.String">
+        update emailInfoRecord
+        set emailId = #{ }status = 1
+        where a.activationCode = ${activationCode}
+    </update>
+
+</mapper>   
