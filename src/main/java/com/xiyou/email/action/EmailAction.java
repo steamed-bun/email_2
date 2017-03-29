@@ -19,7 +19,7 @@ public class EmailAction {
         emailService.addInfoRecord(infoRecord);
         System.out.println(infoRecord);
         System.out.println("add");
-        //emailService.sendEmail();
+        //emailService.sendEmail("514156689@qq.com");
         return "test";
     }
 

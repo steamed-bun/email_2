@@ -26,18 +26,18 @@ public class EmailService {
     private String from;
     @Value("#{prop.password}")
     private String password;
-//    @Value("#{emailProperties['mail.smtp.host']}")
+    @Value("#{prop['mail.smtp.host']}")
     private String host;
-//    @Value("#{emailProperties['mail.smtp.auth']}")
+    @Value("#{prop['mail.smtp.auth']}")
     private String auth;
 
 
-    public void sendEmail(){
+    public void sendEmail(String to){
         Properties properties = new Properties();
         properties.setProperty("mail.smtp.host",host);
         properties.setProperty("mail.smtp.auth",auth);
         System.out.println("send");
-        String to = "514156689@qq.com";
+//        String to = "514156689@qq.com";
         Session session = Session.getDefaultInstance(properties,new AuthenticatorImpl(from,password));
         MimeMessage message = new MimeMessage(session);
         try {
@@ -50,6 +50,7 @@ public class EmailService {
             Transport.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
+
         }
     }
 

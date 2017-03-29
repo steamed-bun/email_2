@@ -25,4 +25,8 @@ public class TestEmailService {
         emailService.updateStatus("1");
     }
 
+    @Test
+    public void testSendEmail(){
+        emailService.sendEmail("514156689@qq.com");
+    }
 }
