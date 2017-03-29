@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置全局属性-->
+    <settings>
+        <!-- 使用JDBC 获取数据库自增  -->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!-- 使用列别名替换列名 默认是true      使用列标签代替列名-->
+        <setting name="useColumnLabel" value="true"/>
+        <!--开启驼峰命名转换-->
+        <!--
+        通常数据库列使用大写单词命名，单词间用下划线分隔；而java属性一般遵循驼峰命名法。
+        为了在这两种命名方式之间启用自动映射，需要将 mapUnderscoreToCamelCase设置为true。
+        -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+
+</configuration>
