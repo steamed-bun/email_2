@@ -42,7 +42,8 @@ public class InfoRecord {
     @Override
     public String toString() {
         return "InfoRecord{" +
-                "receiver='" + receiver + '\'' +
+                "emailId=" + emailId +
+                ", receiver='" + receiver + '\'' +
                 ", activationCode='" + activationCode + '\'' +
                 ", status=" + status +
                 '}';

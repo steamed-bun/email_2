@@ -16,6 +16,13 @@ public interface EmailMapper {
      * 更改状态码
      * @param activationCode
      */
-    void updateStatus(String activationCode);
+    void updateStatus(Object activationCode);
+
+    /**
+     * 通过激活码找到对应的记录
+     * @param activationCode
+     * @return
+     */
+    InfoRecord getInfoRecordByCode(Object  activationCode);
 
 }

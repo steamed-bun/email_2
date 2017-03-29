@@ -32,12 +32,11 @@ public class EmailService {
     private String auth;
 
 
-    public void sendEmail(String to){
+    public void sendEmail(String to,String activationCode){
         Properties properties = new Properties();
         properties.setProperty("mail.smtp.host",host);
         properties.setProperty("mail.smtp.auth",auth);
         System.out.println("send");
-//        String to = "514156689@qq.com";
         Session session = Session.getDefaultInstance(properties,new AuthenticatorImpl(from,password));
         MimeMessage message = new MimeMessage(session);
         try {
@@ -45,12 +44,11 @@ public class EmailService {
             // Set To: 头部头字段
             message.setRecipient(Message.RecipientType.TO,new InternetAddress(to));
             message.setSubject("激活邮件");
-            message.setContent("<h1>Test<h1>","text/html;charset=UTF-8");
-            message.setText("<h1>Test<h1>");
+            message.setContent("<h1>Test<h1><br><a href=\"http://localhost:8090/activation.jsp?activationCode="+activationCode+"\">dji</a>","text/html;charset=UTF-8");
+//            message.setText("<h1>Test<h1>");
             Transport.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
-
         }
     }
 
@@ -60,8 +58,11 @@ public class EmailService {
          mapper.addInfoRecord(infoRecord);
     }
 
-    public void updateStatus(String activationCode){
-        mapper.updateStatus(activationCode);
+    public void updateStatus(InfoRecord infoRecord){
+        mapper.updateStatus(infoRecord);
     }
 
+    public InfoRecord getInfoRecordByCode(String activationCode){
+       return  mapper.getInfoRecordByCode(activationCode);
+    }
 }

@@ -41,7 +41,7 @@
 		<property name="minPoolSize" value="${jdbc.initPoolSize}"/>
 		<!--关闭链接后不自动commit-->
 		<property name="autoCommitOnClose" value="false"/>
-		<property name="checkoutTimeout" value="1000"/>
+		<property name="checkoutTimeout" value="10000"/>
 		<!--获取连接失败重试次数-->
 		<property name="acquireRetryAttempts" value="2"/>
 	</bean>

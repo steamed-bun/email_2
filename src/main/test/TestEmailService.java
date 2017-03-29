@@ -22,11 +22,19 @@ public class TestEmailService {
 
     @Test
     public void testUpdateStatus(){
-        emailService.updateStatus("1");
+        InfoRecord infoRecord = new InfoRecord();
+        infoRecord.setActivationCode("6cd3571850ad4954b94fa0835999ba42");
+        emailService.updateStatus(infoRecord);
     }
 
     @Test
     public void testSendEmail(){
-        emailService.sendEmail("514156689@qq.com");
+        emailService.sendEmail("514156689@qq.com","6cd3571850ad4954b94fa0835999ba42");
     }
+
+    @Test
+    public void testGetInfoRecordByCode(){
+        System.out.println(emailService.getInfoRecordByCode("6cd3571850ad4954b94fa0835999ba42"));
+    }
+
 }

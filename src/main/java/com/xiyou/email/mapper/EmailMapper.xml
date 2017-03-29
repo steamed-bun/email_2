@@ -12,10 +12,15 @@
     </insert>
 
     <!-- 根据id，修改记录-->
-    <update id="updateStatus" parameterType="java.lang.String">
+    <update id="updateStatus" parameterType="com.xiyou.email.entities.InfoRecord">
         update emailInfoRecord
-        set emailId = #{ }status = 1
-        where a.activationCode = ${activationCode}
+        set status = 1
+        where activationCode = #{activationCode}
     </update>
+
+    <select id="getInfoRecordByCode" parameterType="Object" resultType="com.xiyou.email.entities.InfoRecord">
+        SELECT <include refid="Base_Column_List"/>
+        FROM emailinforecord a WHERE a.activationCode = #{activationCode}
+    </select>
 
 </mapper>   
